@@ -31,20 +31,19 @@ brew install gh
 # fisher
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
 
-sh -c "~/bin/chezmoi apply ~/.config/fish/fish_plugins --force"
-
 fish -c "fisher update"
 
 # neovim vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-fish -c "nvm install lts"
-fish -c "nvm use lts"
-
 echo $(which fish) | sudo tee -a /etc/shells
 chsh -s $(which fish)
 
 echo ""
 echo "Last steps:"
+echo "$ ~/bin/chezmoi apply ~/.config/fish/fish_plugins --force"
+echo "$ fish -c \"fisher update\""
+echo "$ nvm install lts"
 echo "- Make sure to run :PlugInstall in neovim"
+
