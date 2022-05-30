@@ -1,21 +1,27 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
-# fish
-echo "Setup fish..."
-sudo apt install fish
 
-# ripgrep
-echo "Setup ripgrep..."
-sudo apt install ripgrep
+# fish, neovim ppa
+sudo add-apt-epository ppa:fish-shell/release-3 -y
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo add-apt-repository ppa:neovim-ppa/stable -y
+
+# github cli 
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+sudo apt update
+sudo apt upgrade -y
+
+sudo apt install fish ripgrep neovim gh
 
 # exa 
 # need to build exa from source because package doesnt exist for LTE 20.04
-echo "Setup exa..."
-
 apt-cache show exa
 status=$?
 
-if [[ $status -eq 0 ]]; then
+if [[ $status -eq 0 ]]
+then
 	echo "exa available, installing from apt"
 	sudo apt install exa
 else
@@ -31,36 +37,16 @@ else
 	sudo apt purge --autoremove
 fi
 
-# nvim
-echo "Setup nvim..."
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt update
-sudo apt install nvim
-
-# github shell
-echo "Setup github cli..."
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install gh
-
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 
-echo "Setup fish..."
 brew install fish
-echo "Setup ripgrep..."
 brew install ripgrep
-echo "Setup exa..."
 brew install exa
-echo "Setup neovim..."
 brew install --HEAD neovim
-echo "Setup github cli..."
 brew install gh
 {{ end -}}
 
 #fisher
-echo "Setup fisher..."
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-fisher update
+fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+fish -c "fisher update"
