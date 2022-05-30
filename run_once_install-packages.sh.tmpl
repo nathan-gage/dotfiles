@@ -39,7 +39,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 fish -c "nvm install lts"
 fish -c "nvm use lts"
 
+echo $(which fish) | sudo tee -a /etc/shells
+chsh -s $(which fish)
+
 echo ""
 echo "Last steps:"
 echo "- Make sure to run :PlugInstall in neovim"
-echo "- Set fish as default shell"
