@@ -1,0 +1,47 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+# fish
+echo "Setup fish..."
+sudo apt install fish
+
+# ripgrep
+echo "Setup ripgrep..."
+sudo apt install ripgrep
+
+# exa 
+# need to build exa from source because package doesnt exist for LTE 20.04
+echo "Setup exa..."
+sudo apt install libgit2-dev rustc
+sudo apt-mark auto rustc
+git clone https://github.com/ogham/exa --depth=1
+cd exa
+cargo build --release && cargo test #cargo test is optional
+sudo install target/release/exa /usr/local/bin/exa
+cd ..
+rm -rf exa
+sudo apt purge --autoremove
+
+# nvim
+echo "Setup nvim..."
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install nvim
+
+{{ else if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+
+echo "Setup fish..."
+brew install fish
+echo "Setup ripgrep..."
+brew install ripgrep
+echo "Setup exa..."
+brew install exa
+echo "Setup neovim..."
+brew install --HEAD neovim
+{{ end -}}
+
+#fisher
+echo "Setup fisher..."
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher update
