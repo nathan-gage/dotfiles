@@ -1,0 +1,8 @@
+[user]
+	name = Nathan
+	email = ngage@smu.edu
+[color]
+	ui = auto
+[core]
+	editor = nvim 
+

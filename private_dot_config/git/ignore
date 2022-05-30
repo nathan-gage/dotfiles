@@ -1,0 +1,14 @@
+# OS generated files
+
+.DS_STORE
+.DS_STORE?
+.Trashes
+Thumbs.db
+desktop.ini
+
+# Temp files
+.swp
+.bak
+.swo
+.~
+.#
