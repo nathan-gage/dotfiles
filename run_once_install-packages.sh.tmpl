@@ -15,27 +15,8 @@ sudo apt upgrade -y
 
 sudo apt install fish ripgrep neovim gh
 
-# exa 
-# need to build exa from source because package doesnt exist for LTE 20.04
-apt-cache show exa
-status=$?
-
-if [[ $status -eq 0 ]]
-then
-	echo "exa available, installing from apt"
-	sudo apt install exa
-else
-	echo "exa not available via apt, building from source"
-	sudo apt install libgit2-dev rustc
-	sudo apt-mark auto rustc
-	git clone https://github.com/ogham/exa --depth=1
-	cd exa
-	cargo build --release && cargo test #cargo test is optional
-	sudo install target/release/exa /usr/local/bin/exa
-	cd ..
-	rm -rf exa
-	sudo apt purge --autoremove
-fi
+# exa only available on 20.10 or above
+sudo apt install exa
 
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
