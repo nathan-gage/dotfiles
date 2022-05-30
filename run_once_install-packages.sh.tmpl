@@ -13,7 +13,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install fish ripgrep neovim gh
+sudo apt install fish ripgrep neovim gh build-essential
 
 # exa only available on 20.10 or above
 sudo apt install exa
@@ -30,6 +30,10 @@ brew install gh
 
 # fisher
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+
+CHEZMOI_EXEC={{- .chezmoi.args[0] }}
+sh -c "~/.bin/chezmoi apply ~/.config/fish/fish_plugins --force"
+
 fish -c "fisher update"
 
 # neovim vim-plug
