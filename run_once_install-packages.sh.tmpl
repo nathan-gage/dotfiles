@@ -11,15 +11,25 @@ sudo apt install ripgrep
 # exa 
 # need to build exa from source because package doesnt exist for LTE 20.04
 echo "Setup exa..."
-sudo apt install libgit2-dev rustc
-sudo apt-mark auto rustc
-git clone https://github.com/ogham/exa --depth=1
-cd exa
-cargo build --release && cargo test #cargo test is optional
-sudo install target/release/exa /usr/local/bin/exa
-cd ..
-rm -rf exa
-sudo apt purge --autoremove
+
+apt-cache show exa
+status=$?
+
+if [[ $status -eq 0 ]]; then
+	echo "exa available, installing from apt"
+	sudo apt install exa
+else
+	echo "exa not available via apt, building from source"
+	sudo apt install libgit2-dev rustc
+	sudo apt-mark auto rustc
+	git clone https://github.com/ogham/exa --depth=1
+	cd exa
+	cargo build --release && cargo test #cargo test is optional
+	sudo install target/release/exa /usr/local/bin/exa
+	cd ..
+	rm -rf exa
+	sudo apt purge --autoremove
+fi
 
 # nvim
 echo "Setup nvim..."
@@ -27,6 +37,13 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install nvim
+
+# github shell
+echo "Setup github cli..."
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh
 
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
@@ -39,6 +56,8 @@ echo "Setup exa..."
 brew install exa
 echo "Setup neovim..."
 brew install --HEAD neovim
+echo "Setup github cli..."
+brew install gh
 {{ end -}}
 
 #fisher
