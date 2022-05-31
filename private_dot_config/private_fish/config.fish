@@ -28,3 +28,8 @@ switch (uname)
     case Darwin
         source (dirname (status --current-filename))/config-macos.fish
 end
+
+if test -e (dirname (status --current-filename))/conda.fish
+    source (dirname (status --current-filename))/conda.fish
+end
+
