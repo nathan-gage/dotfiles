@@ -26,6 +26,7 @@ if has("nvim")
   Plug 'BurntSushi/ripgrep'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'github/copilot.vim'
 endif
 
 call plug#end()
