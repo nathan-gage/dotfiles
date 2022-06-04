@@ -3,3 +3,7 @@ if type -q exa
     alias ll "exa -l -g --icons"
     alias lla "ll -a"
 end
+
+fish_add_path "/mnt/c/WINDOWS/"
+fish_add_path "/mnt/c/WINDOWS/System32"
+
