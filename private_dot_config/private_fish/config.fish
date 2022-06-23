@@ -30,6 +30,7 @@ switch (uname)
 end
 
 if test -e (dirname (status --current-filename))/conda.fish
+    set -gx CONDA_AUTO_ACTIVATE_BASE false
     source (dirname (status --current-filename))/conda.fish
 end
 
