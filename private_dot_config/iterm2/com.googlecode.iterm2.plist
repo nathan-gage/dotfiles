@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>ApplePressAndHoldEnabled</key>
@@ -3195,6 +3197,8 @@
 			<string>/Users/ngage</string>
 		</dict>
 	</array>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PerPaneBackgroundImage</key>
 	<true/>
 	<key>PointerActions</key>
@@ -3231,6 +3235,8 @@
 		</dict>
 	</dict>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
+	<true/>
+	<key>Print In Black And White</key>
 	<true/>
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
