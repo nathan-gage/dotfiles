@@ -5,6 +5,7 @@ autocmd!
 scriptencoding utf-8
 if !1 | finish | endif
 
+set mouse=a
 set nocompatible
 set number
 syntax enable
@@ -55,5 +56,5 @@ if has("unix")
 endif
 
 " themeing
-colorscheme PaperColor
+colorscheme onedark 
 
