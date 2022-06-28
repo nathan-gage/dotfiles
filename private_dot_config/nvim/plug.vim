@@ -15,6 +15,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 if has("nvim")
+  Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
   Plug 'navarasu/onedark.nvim'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
