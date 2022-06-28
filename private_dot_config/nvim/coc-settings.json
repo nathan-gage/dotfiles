@@ -1,13 +1,16 @@
 {
-    "eslint.autoFixOnSave": true,
-    "diagnostic.checkCurrentLine": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "json",
-    ],
-    "tsserver.formatOnType": true,
-    "coc.preferences.formatOnType": true
+  "eslint.autoFixOnSave": true,
+  "diagnostic.checkCurrentLine": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json"
+  ],
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "python.pythonPath": "./pyright-conda.sh",
+  "python.formatting.provider": "black"
 }

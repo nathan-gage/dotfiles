@@ -1,6 +1,7 @@
 " language support
 let g:coc_global_extensions = [
-  \ 'coc-tsserver'
+  \ 'coc-tsserver',
+  \ 'coc-pyright',
   \ ]
 
 " prettier / ESLint
