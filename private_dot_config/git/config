@@ -7,6 +7,7 @@
 	ui = auto
 [alias]
 	s = status
+	ch = checkout
 [core]
 	editor = nvim 
 [diff]
