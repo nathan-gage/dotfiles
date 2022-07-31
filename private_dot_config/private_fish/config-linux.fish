@@ -4,6 +4,6 @@ if type -q exa
     alias lla "ll -a"
 end
 
-fish_add_path "/mnt/c/WINDOWS/"
-fish_add_path "/mnt/c/WINDOWS/System32"
-fish_add_path "~/.local/bin"
+fish_add_path -U "/mnt/c/Windows/"
+fish_add_path -U "/mnt/c/Windows/System32"
+fish_add_path -U "$HOME/.local/bin"
