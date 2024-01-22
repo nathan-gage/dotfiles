@@ -16,6 +16,11 @@ show_milliseconds = true
 
 [status]
 disabled = false
+symbol = " "
+not_executable_symbol = " "
+not_found_symbol = " "
+sigint_symbol = " "
+signal_symbol = " "
 
 [aws]
 symbol = "  "
