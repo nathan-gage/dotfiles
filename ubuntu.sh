@@ -19,8 +19,8 @@ sudo nala fetch
 echo "Updating packages"
 sudo nala update && sudo nala upgrade -y
 
-echo "Installing bat ripgrip neovim build-essential gh exa screenfetch"
-sudo nala install bat ripgrep neovim build-essential gh exa screenfetch -y
+echo "Installing bat ripgrip neovim build-essential gh exa screenfetch mold clang"
+sudo nala install bat ripgrep neovim build-essential gh exa screenfetch mold clang -y
 
 echo "neovim config"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
