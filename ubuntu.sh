@@ -46,3 +46,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 echo "Installing pyenv"
 curl https://pyenv.run | bash
+
+echo "Installing Cargo/rust"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
