@@ -10,6 +10,7 @@
 	ch = checkout
 	c = commit
 	b = branch
+	a = add
 [core]
 	editor = nvim 
 [diff]

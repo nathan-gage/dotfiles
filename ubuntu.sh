@@ -56,3 +56,5 @@ curl https://pyenv.run | bash
 echo "Installing Cargo/rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+echo "Copy .cargo, .config, .zshrc to ~!"
+
