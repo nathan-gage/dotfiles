@@ -46,7 +46,7 @@ zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
 # vscode integration
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code -- --locate-shell-integration-path zsh)"
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # starship
 eval "$(starship init zsh)"
