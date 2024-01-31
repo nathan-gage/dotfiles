@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME=""
 
-plugins = (
+plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting

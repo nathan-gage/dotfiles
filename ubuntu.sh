@@ -2,6 +2,7 @@
 
 echo "Adding PPA for Neovim"
 sudo add-apt-repository ppa:neovim-ppa/stable -y -n
+sudo add-apt-repository ppa:neovim-ppa/unstable -y -n
 
 echo "Installing Github CLI"
 type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
